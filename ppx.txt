@@ -1,0 +1,10 @@
+M_pdf	= {	** comment **
+pdfcpu	= ??M_pdfcpu
+}
+M_pdfcpu	={
+&merge	= %OB pdfcpu merge %*name(DX, %C)_merge.pdf %#FDCB %Or-
+&rotate	= %OB pdfcpu rotate %"対象ページ e.g. -3,5,7- or 4-7,!6 or 1-,!5 or odd,n1"%{-pages %|%} %FDCB %"90 = right, 180 = flip, 270 = left"%E
+&trim	= %OB pdfcpu trim %"対象ページ e.g. -3,5,7- or 4-7,n6 or 1-,n5 or odd,n1"%{-pages %|%} %FDCB %*name(DX, %C)_trim.pdf
+e&xtract	= %OB pdfcpu extract -mode=page  %"対象ページ e.g. -3,5,7- or 4-7,n6 or 1-,n5 or odd,n1"%{-pages %|%} %FDCB %*name(DX, %C)_extract.pdf
+&encrypt	= %OB pdfcpu encrypt -upw %"Passowrd"%E %FDCB %*name(DX, %C)_encrypt.pdf
+}
